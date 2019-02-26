@@ -1,20 +1,11 @@
-/** Class representing a 2×2 matrix. */
-export default class Matrix2 {
-    /**
-     * Create a 2×2 matrix.
-     * @param {Array} elements - The matrix elements.
-     */
+export default class Matrix2 
+{
     constructor(elements) {
         this.elements = elements || [
             0, 0,
             0, 0,
         ]
     }
-
-    /**
-     * Addition of a matrix to the current matrix.
-     * @param {Array} b - The second matrix.
-     */
     add(b) {
         const a = this.elements
         this.elements = [
@@ -23,10 +14,6 @@ export default class Matrix2 {
         ]
     }
 
-    /**
-     * Subtraction of a matrix from the current matrix.
-     * @param {Array} b - The second matrix.
-     */
     sub(b) {
         const a = this.elements
         this.elements = [
@@ -35,10 +22,6 @@ export default class Matrix2 {
         ]
     }
 
-    /**
-     * Multiplication of the current matrix by another matrix.
-     * @param {Array} b - The second matrix.
-     */
     mul(b) {
         const a = this.elements
         const c = []
@@ -50,10 +33,7 @@ export default class Matrix2 {
         this.elements = c
     }
 
-    /**
-     * Rotate the matrix around the origin.
-     * @param {Number} α - The anticlockwise angle in degrees.
-     */
+    
     rot(α) {
         α *= Math.PI / 180
         const cos = Math.cos(α)

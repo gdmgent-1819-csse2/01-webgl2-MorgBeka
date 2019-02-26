@@ -13,10 +13,6 @@ export default class Matrix4 {
         ]
     }
 
-    /**
-     * Addition of a matrix to the current matrix.
-     * @param {Array} b - The second matrix.
-     */
     add(b) {
         const a = this.elements
         this.elements = [
@@ -41,10 +37,7 @@ export default class Matrix4 {
         ]
     }
 
-    /**
-     * Multiplication of the current matrix by another matrix.
-     * @param {Array} b - The second matrix.
-     */
+
     mul(b) {
         const a = this.elements
         const c = []
@@ -75,16 +68,67 @@ export default class Matrix4 {
      * Rotate the matrix around the origin.
      * @param {Number} α - The anticlockwise angle in degrees.
      */
-    rot(α) {
+    rotx(α) {
         α *= Math.PI / 180
         const cos = Math.cos(α)
         const sin = Math.sin(α)
         const a = this.elements
         const r = [
-            cos, -sin,
-            sin, cos,
+            1, 0, 0, 0,
+            0, cos, -sin, 0,
+            0, sin, cos, 0,
+            0, 0, 0, 1, 
         ]
         this.elements = r
         this.mul(a);
     }
+
+    roty(α) {
+        α *= Math.PI / 180
+        const cos = Math.cos(α)
+        const sin = Math.sin(α)
+        const a = this.elements
+        const r = [
+            cos, 0, sin, 0,
+            0, 1, 0, 0,
+            -sin, 0, cos, 0,
+            0, 0, 0, 1, 
+        ]
+        this.elements = r
+        this.mul(a);
+    }
+
+    rotz(α) {
+        α *= Math.PI / 180
+        const cos = Math.cos(α)
+        const sin = Math.sin(α)
+        const a = this.elements
+        const r = [
+            cos, -sin, 0, 0,
+            sin, cos, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1, 
+        ]
+        this.elements = r
+        this.mul(a);
+    }
+
+    rotw(α) {
+        α *= Math.PI / 180
+        const cos = Math.cos(α)
+        const sin = Math.sin(α)
+        const a = this.elements
+        const r = [
+            cos, -sin, 0, 0,
+            sin, cos, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1, 
+        ]
+        this.elements = r
+        this.mul(a);
+    }
+
+    
+
+
 }

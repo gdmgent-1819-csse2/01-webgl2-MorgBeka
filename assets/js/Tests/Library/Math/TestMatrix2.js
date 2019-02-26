@@ -1,25 +1,20 @@
 import Matrix2 from '../../../Library/Math/Matrix2.js'
 import TestMatrix from './TestMatrix.js'
 
-/** Class for testing the Matrix2 class. */
-export default class TestMatrix2 extends TestMatrix {
-    /**
-     * Create and run the tests.
-     */
+export default class TestMatrix2 extends TestMatrix 
+{
     constructor() {
         super()
         console.info('testing Matrix2')
-        this.testAdd()
-        this.testSub()
-        this.testMul()
-        this.testMulIdentity()
-        this.testRot()
+        this.AddTest()
+        this.SubTest()
+        this.MulTest()
+        this.MulIdentityTest()
+        this.RotTest()
     }
 
-    /**
-     * Test the addition method.
-     */
-    testAdd() {
+
+    AddTest() {
         console.info('test Matrix2.add()')
         const a = [
             1, 2,
@@ -39,10 +34,8 @@ export default class TestMatrix2 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the subtraction method.
-     */
-    testSub() {
+
+    SubTest() {
         console.info('test Matrix2.sub()')
         const a = [
             1, 2,
@@ -62,10 +55,7 @@ export default class TestMatrix2 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the multiplication method.
-     */
-    testMul() {
+    MulTest() {
         console.info('test Matrix2.mul()')
         const a = [
             1, 2,
@@ -85,10 +75,8 @@ export default class TestMatrix2 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the multiplication method with an identity matrix.
-     */
-    testMulIdentity() {
+    MulIdentityTest() 
+    {
         console.info('test Matrix2.mul() by identity matrix')
         const a = [
             1, 2,
@@ -108,10 +96,7 @@ export default class TestMatrix2 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the rotation method.
-     */
-    testRot() {
+    RotTest() {
         console.info('test Matrix2.rot()')
         const α = 90
         const a = [

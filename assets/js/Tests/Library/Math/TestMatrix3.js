@@ -1,11 +1,9 @@
 import Matrix3 from '../../../Library/Math/Matrix3.js'
 import TestMatrix from './TestMatrix.js'
 
-/** Class for testing the Matrix3 class. */
+
 export default class TestMatrix3 extends TestMatrix {
-    /**
-     * Create and run the tests.
-     */
+ 
     constructor() {
         super()
         console.info('testing Matrix3')
@@ -13,12 +11,11 @@ export default class TestMatrix3 extends TestMatrix {
         this.testSub()
         this.testMul()
         this.testMulIdentity()
-        this.testRot()
+        this.testRotx()
+        this.testRoty()
+        this.testRotz()
     }
 
-    /**
-     * Test the addition method.
-     */
     testAdd() {
         console.info('test Matrix3.add()')
         const a = [
@@ -42,9 +39,7 @@ export default class TestMatrix3 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the subtraction method.
-     */
+   
     testSub() {
         console.info('test Matrix3.sub()')
         const a = [
@@ -68,9 +63,7 @@ export default class TestMatrix3 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the multiplication method.
-     */
+   
     testMul() {
         console.info('test Matrix3.mul()')
         const a = [
@@ -94,9 +87,7 @@ export default class TestMatrix3 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the multiplication method with an identity matrix.
-     */
+
     testMulIdentity() {
         console.info('test Matrix3.mul() by identity matrix')
         const a = [
@@ -120,15 +111,49 @@ export default class TestMatrix3 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the rotation method.
-     */
-    testRot() {
+    testRotx() {
         console.info('test Matrix3.rot()')
         const α = 90
         const a = [
+            3, 0, 2,
+            1, 0, 4,
+            3, 6, 8, 
+        ]
+        const expected = [
+            -1, 0,
             3, 0,
-            1, 0,
+        ]
+        const m = new Matrix3(a)
+        m.rot(α)
+        const actual = m.elements
+        this.assertIdenticalRounded(actual, expected)
+    }
+
+    testRoty() {
+        console.info('test Matrix3.rot()')
+        const α = 90
+        const a = [
+            3, 0, 2,
+            1, 0, 4,
+            3, 6, 8, 
+        ]
+        const expected = [
+            -1, 0,
+            3, 0,
+        ]
+        const m = new Matrix3(a)
+        m.rot(α)
+        const actual = m.elements
+        this.assertIdenticalRounded(actual, expected)
+    }
+
+    testRotz() {
+        console.info('test Matrix3.rot()')
+        const α = 90
+        const a = [
+            3, 0, 2,
+            1, 0, 4,
+            3, 6, 8, 
         ]
         const expected = [
             -1, 0,

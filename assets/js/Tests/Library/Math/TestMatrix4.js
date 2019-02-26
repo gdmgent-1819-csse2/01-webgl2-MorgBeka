@@ -13,12 +13,12 @@ export default class TestMatrix4 extends TestMatrix {
         this.testSub()
         this.testMul()
         this.testMulIdentity()
-        this.testRot()
+        this.testRotx()
+        this.testRoty()
+        this.testRotz()
+        this.testRotw()
     }
 
-    /**
-     * Test the addition method.
-     */
     testAdd() {
         console.info('test Matrix4.add()')
         const a = [
@@ -45,9 +45,6 @@ export default class TestMatrix4 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the subtraction method.
-     */
     testSub() {
         console.info('test Matrix4.sub()')
         const a = [
@@ -75,9 +72,6 @@ export default class TestMatrix4 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the multiplication method.
-     */
     testMul() {
         console.info('test Matrix4.mul()')
         const a = [
@@ -104,9 +98,6 @@ export default class TestMatrix4 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the multiplication method with an identity matrix.
-     */
     testMulIdentity() {
         console.info('test Matrix4.mul() by identity matrix')
         const a = [
@@ -135,15 +126,72 @@ export default class TestMatrix4 extends TestMatrix {
         this.assertIdentical(actual, expected)
     }
 
-    /**
-     * Test the rotation method.
-     */
-    testRot() {
+
+    testRotx() {
         console.info('test Matrix4.rot()')
         const α = 90
         const a = [
+            3, 0, 2, 5,
+            1, 0, 4, 6, 
+            3, 6, 8, 7,
+            7, 9, 10, 7, 
+        ]
+        const expected = [
+            -1, 0,
             3, 0,
-            1, 0,
+        ]
+        const m = new Matrix4(a)
+        m.rot(α)
+        const actual = m.elements
+        this.assertIdenticalRounded(actual, expected)
+    }
+
+    testRoty() {
+        console.info('test Matrix4.rot()')
+        const α = 90
+        const a = [
+            3, 0, 2, 5,
+            1, 0, 4, 6, 
+            3, 6, 8, 7,
+            7, 9, 10, 7, 
+        ]
+        const expected = [
+            -1, 0,
+            3, 0,
+        ]
+        const m = new Matrix4(a)
+        m.rot(α)
+        const actual = m.elements
+        this.assertIdenticalRounded(actual, expected)
+    }
+
+    testRotz() {
+        console.info('test Matrix4.rot()')
+        const α = 90
+        const a = [
+            3, 0, 2, 5,
+            1, 0, 4, 6, 
+            3, 6, 8, 7,
+            7, 9, 10, 7, 
+        ]
+        const expected = [
+            -1, 0,
+            3, 0,
+        ]
+        const m = new Matrix4(a)
+        m.rot(α)
+        const actual = m.elements
+        this.assertIdenticalRounded(actual, expected)
+    }
+
+    testRotw() {
+        console.info('test Matrix4.rot()')
+        const α = 90
+        const a = [
+            3, 0, 2, 5,
+            1, 0, 4, 6, 
+            3, 6, 8, 7,
+            7, 9, 10, 7, 
         ]
         const expected = [
             -1, 0,
