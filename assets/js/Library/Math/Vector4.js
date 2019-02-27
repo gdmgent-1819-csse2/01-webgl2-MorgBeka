@@ -59,7 +59,7 @@ export default class Vector4 {
 
     /**
      * Calculate the dot product of the current vector and another vector.
-     * @param {Vector3} v - The second vector.
+     * @param {Vector4} v - The second vector.
      * @return {Number} the dot product of the wzo
      */
     dot(v) {
@@ -70,9 +70,39 @@ export default class Vector4 {
      * Rotate the vector around the origin.
      * @param {Number} α - The anticlockwise angle in degrees.
      */
-    rot(α) {
-        const m = new Matrix3([this.x, 0, this.y, 0, this.z, 0, this.w, 0])
-        m.rot(α)
+    rotx(α) {
+        const m = new Matrix4([this.x, 0, this.y, 0, this.z, 0, this.w, 0])
+        m.rotx(α)
+        console.log(m)
+        this.x = m.elements[0]
+        this.y = m.elements[2]
+        this.z = m.elements[4]
+        this.w = m.elements[6]
+    }
+    
+    roty(α) {
+        const m = new Matrix4([this.x, 0, this.y, 0, this.z, 0, this.w, 0])
+        m.roty(α)
+        console.log(m)
+        this.x = m.elements[0]
+        this.y = m.elements[2]
+        this.z = m.elements[4]
+        this.w = m.elements[6]
+    }
+
+    rotz(α) {
+        const m = new Matrix4([this.x, 0, this.y, 0, this.z, 0, this.w, 0])
+        m.rotz(α)
+        console.log(m)
+        this.x = m.elements[0]
+        this.y = m.elements[2]
+        this.z = m.elements[4]
+        this.w = m.elements[6]
+    }
+
+    rotw(α) {
+        const m = new Matrix4([this.x, 0, this.y, 0, this.z, 0, this.w, 0])
+        m.rotw(α)
         console.log(m)
         this.x = m.elements[0]
         this.y = m.elements[2]

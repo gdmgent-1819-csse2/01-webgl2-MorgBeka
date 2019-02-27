@@ -1,4 +1,4 @@
-import Vector4 from '../../../Liberary/Math/Vector2.js'
+import Vector4 from '../../../Library/Math/Vector4.js'
 
 export default class TestVector4
 {
@@ -16,7 +16,7 @@ export default class TestVector4
 
   testAdd()
   {
-    console.log('test Vector3.add()')
+    console.log('test Vector4.add()')
     const x1 = 8
     const y1 = 4
     const z1 = 2
@@ -26,10 +26,10 @@ export default class TestVector4
     const z2 = 8
     const w2 = 8
     console.log('x1=', x1, 'y1=', y1, 'z1=', z1, 'w1=', w1, 'x2=', x2, 'y2=', y2, 'z2=', z2, 'w2=', w2)
-    const expectedx = 4
-    const expectedy = 2
-    const expectedz = 2
-    const expectedw = 2
+    const expectedx = 10
+    const expectedy = 5
+    const expectedz = 10
+    const expectedw = 10
     const v1 = new Vector4(x1, y1, z1, w1)
     const v2 = new Vector4(x2, y2, z2, w2)
     v1.add(v2)
@@ -53,10 +53,10 @@ export default class TestVector4
     const z2 = 8
     const w2 = 8
     console.log('x1=', x1, 'y1=', y1, 'z1=', z1, 'w1=', w1, 'x2=', x2, 'y2=', y2, 'z2=', z2, 'w2=', w2)
-    const expectedx = 4
-    const expectedy = 2
-    const expectedz = 2
-    const expectedw = 2
+    const expectedx = 6
+    const expectedy = 3
+    const expectedz = -6
+    const expectedw = -6
     const v1 = new Vector4(x1, y1, z1, w1)
     const v2 = new Vector4(x2, y2, z2, w2)
     v1.sub(v2)
@@ -69,7 +69,7 @@ export default class TestVector4
 
   testScalar()
   {
-    console.log('test Vector3.scalar()')
+    console.log('test Vector4.scalar()')
     const x = 2
     const y = 3
     const z = 6
@@ -77,9 +77,9 @@ export default class TestVector4
     const a = 2
     console.log('x1=', x, 'y1=', y, 'z1=', z, 'w1=', w, 'x2=', x, 'y2=', y, 'z2=', z, 'w2=', w)
     const expectedx = 4
-    const expectedy = 2
-    const expectedz = 2
-    const expectedw = 2
+    const expectedy = 6
+    const expectedz = 12
+    const expectedw = 12
     const v = new Vector4(x, y, z, w)
     v.scalar(a)
     const actualx = v.x
@@ -91,7 +91,7 @@ export default class TestVector4
 
   testRotx()
   {
-    console.log('test Vector3.rotx()')
+    console.log('test Vector4.rotx()')
     const x = 2
     const y = 3
     const z = 4
@@ -102,8 +102,9 @@ export default class TestVector4
     const expectedy = 2
     const expectedz = 2
     const expectedw = 2
+
     const v = new Vector4(x, y, z, w)
-    v.rotx(a)
+    v.rotx(α)
     const actualx = v.x
     const actualy = v.y
     const actualz = v.z
@@ -114,7 +115,7 @@ export default class TestVector4
 
   testRoty()
   {
-    console.log('test Vector3.roty()')
+    console.log('test Vector4.roty()')
     const x = 2
     const y = 3
     const z = 4
@@ -125,8 +126,9 @@ export default class TestVector4
     const expectedy = 2
     const expectedz = 2
     const expectedw = 2
+
     const v = new Vector4(x, y, z, w)
-    v.roty(a)
+    v.roty(α)
     const actualx = v.x
     const actualy = v.y
     const actualz = v.z
@@ -137,7 +139,7 @@ export default class TestVector4
 
   testRotz()
   {
-    console.log('test Vector3.rotz()')
+    console.log('test Vector4.rotz()')
     const x = 2
     const y = 3
     const z = 4
@@ -148,8 +150,9 @@ export default class TestVector4
     const expectedy = 2
     const expectedz = 2
     const expectedw = 2
+
     const v = new Vector4(x, y, z, w)
-    v.rotz(a)
+    v.rotz(α)
     const actualx = v.x
     const actualy = v.y
     const actualz = v.z
@@ -157,8 +160,30 @@ export default class TestVector4
     this.assertIdentical(actualx,actualy, actualz, actualw, expectedx, expectedy, expectedz, expectedw)
   }
 
+  testRotw()
+  {
+    console.log('test Vector4.rotw()')
+    const x = 2
+    const y = 3
+    const z = 4
+    const w = 4
+    const α = 2
+    console.log('x1=', x, 'y1=', y, 'z1=', z, 'w1=', w, 'x2=', x, 'y2=', y, 'z2=', z, 'w2=', w)
+    const expectedx = 4
+    const expectedy = 2
+    const expectedz = 2
+    const expectedw = 2
+    
+    const v = new Vector4(x, y, z, w)
+    v.rotw(α)
+    const actualx = v.x
+    const actualy = v.y
+    const actualz = v.z
+    const actualw = v.w
+    this.assertIdentical(actualx,actualy, actualz, actualw, expectedx, expectedy, expectedz, expectedw)
+  }
 
-  assertIdentical(actualx,actualy, expectedx, expectedy)
+  assertIdentical(actualx,actualy, actualz, actualw, expectedx, expectedy, expectedz, expectedw)
   {
     const actualroundx = Math.round(actualx)
     const actualroundy = Math.round(actualy)

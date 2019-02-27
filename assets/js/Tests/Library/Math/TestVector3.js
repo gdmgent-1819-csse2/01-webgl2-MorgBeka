@@ -1,4 +1,4 @@
-import Vector3 from '../../../Liberary/Math/Vector2.js'
+import Vector3 from '../../../Library/Math/Vector3.js'
 
 export default class TestVector3
 {
@@ -24,9 +24,9 @@ export default class TestVector3
     const y2 = 1
     const z2 = 8
     console.log('x1=', x1, 'y1=', y1, 'z1=', z1, 'x2=', x2, 'y2=', y2, 'z2=', z2)
-    const expectedx = 4
-    const expectedy = 2
-    const expectedz = 2
+    const expectedx = 10
+    const expectedy = 5
+    const expectedz = 10
     const v1 = new Vector3(x1, y1, z1)
     const v2 = new Vector3(x2, y2, z2)
     v1.add(v2)
@@ -47,9 +47,9 @@ export default class TestVector3
     const y2 = 1
     const z2 = 8
     console.log('x1=', x1, 'y1=', y1, 'z1=', z1, 'x2=', x2, 'y2=', y2, 'z2=', z2)
-    const expectedx = 4
-    const expectedy = 2
-    const expectedz = 2
+    const expectedx = 6
+    const expectedy = 3
+    const expectedz = -6
     const v1 = new Vector3(x1, y1, z1)
     const v2 = new Vector3(x2, y2, z2)
     v1.sub(v2)
@@ -66,16 +66,16 @@ export default class TestVector3
     const y = 3
     const z = 6
     const a = 2
-    console.log('x1=', x1, 'y1=', y1, 'z1=', z1, 'x2=', x2, 'y2=', y2, 'z2=', z2)
+    console.log('x1=', x, 'y1=', y, 'z1=', z, 'x2=', x, 'y2=', y, 'z2=', z)
     const expectedx = 4
     const expectedy = 6
     const expectedz = 11
     const v1 = new Vector3(x, y, z)
     const v2 = new Vector3(x, y, z)
     v1.scalar(v2)
-    const actualx = v.x
-    const actualy = v.y
-    const actualz = v.z
+    const actualx = v1.x
+    const actualy = v1.y
+    const actualz = v1.z
     this.assertIdentical(actualx,actualy, actualz, expectedx, expectedy, expectedz)
   }
 
@@ -89,13 +89,13 @@ export default class TestVector3
     console.log('x1=', x, 'y1=', y, 'z1=', z, 'α=', α)
     const expectedx = 2
     const expectedy = 3
-    const expectedz = 3
+    const expectedz = 10
 
     const v = new Vector3(x, y, z)
     v.rotx(α)
     const actualx = v.x
     const actualy = v.y
-    const actualy = v.z
+    const actualz = v.z
     this.assertIdentical(actualx,actualy, actualz, expectedx, expectedy, expectedz)
   }
 
@@ -109,13 +109,13 @@ export default class TestVector3
     console.log('x1=', x, 'y1=', y, 'z1=', z, 'α=', α)
     const expectedx = 2
     const expectedy = 3
-    const expectedz = 3
+    const expectedz = -6
 
     const v = new Vector3(x, y, z)
     v.roty(α)
     const actualx = v.x
     const actualy = v.y
-    const actualy = v.z
+    const actualz = v.z
     this.assertIdentical(actualx,actualy, actualz, expectedx, expectedy, expectedz)
   }
 
@@ -136,12 +136,12 @@ export default class TestVector3
     v.rotz(α)
     const actualx = v.x
     const actualy = v.y
-    const actualy = v.z
+    const actualz = v.z
     this.assertIdentical(actualx,actualy, actualz, expectedx, expectedy, expectedz)
   }
 
 
-  assertIdentical(actualx,actualy, expectedx, expectedy)
+  assertIdentical(actualx,actualy, actualz, expectedx, expectedy,expectedz)
   {
     const actualroundx = Math.round(actualx)
     const actualroundy = Math.round(actualy)

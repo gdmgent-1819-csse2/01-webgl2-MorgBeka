@@ -112,7 +112,7 @@ export default class TestMatrix3 extends TestMatrix {
     }
 
     testRotx() {
-        console.info('test Matrix3.rot()')
+        console.info('test Matrix3.rotx()')
         const α = 90
         const a = [
             3, 0, 2,
@@ -120,17 +120,18 @@ export default class TestMatrix3 extends TestMatrix {
             3, 6, 8, 
         ]
         const expected = [
-            -1, 0,
-            3, 0,
+            3, 0, 2,
+            -3, -6, -8,
+            1, 0, 4, 
         ]
         const m = new Matrix3(a)
-        m.rot(α)
+        m.rotx(α)
         const actual = m.elements
         this.assertIdenticalRounded(actual, expected)
     }
 
     testRoty() {
-        console.info('test Matrix3.rot()')
+        console.info('test Matrix3.roty()')
         const α = 90
         const a = [
             3, 0, 2,
@@ -138,17 +139,19 @@ export default class TestMatrix3 extends TestMatrix {
             3, 6, 8, 
         ]
         const expected = [
-            -1, 0,
-            3, 0,
+            3, 6, 8, 
+            1, 0, 4, 
+            -3, 0, -2, 
+
         ]
         const m = new Matrix3(a)
-        m.rot(α)
+        m.roty(α)
         const actual = m.elements
         this.assertIdenticalRounded(actual, expected)
     }
 
     testRotz() {
-        console.info('test Matrix3.rot()')
+        console.info('test Matrix3.rotz()')
         const α = 90
         const a = [
             3, 0, 2,
@@ -156,11 +159,12 @@ export default class TestMatrix3 extends TestMatrix {
             3, 6, 8, 
         ]
         const expected = [
-            -1, 0,
-            3, 0,
+            -1, 0, -4, 
+            3, 0, 2, 
+            3, 6, 8, 
         ]
         const m = new Matrix3(a)
-        m.rot(α)
+        m.rotz(α)
         const actual = m.elements
         this.assertIdenticalRounded(actual, expected)
     }

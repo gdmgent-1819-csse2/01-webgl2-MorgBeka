@@ -9,11 +9,11 @@ import TestVector4 from './Library/Math/TestVector4.js'
 export default class Tests {
     constructor() {
         console.log('Running Tests…')
-    // new TestVector2()
-    // new TestVector3()
-    // new TestVector4()
-    // new TestMatrix2()
-     new TestMatrix3()
-    // new TestMatrix4()
+    new TestVector2()
+    new TestVector3()
+    new TestVector4()
+    new TestMatrix2()
+    new TestMatrix3()
+    new TestMatrix4()
     }
 }

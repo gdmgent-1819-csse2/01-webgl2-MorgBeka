@@ -65,9 +65,26 @@ export default class Vector3 {
      * Rotate the vector around the origin.
      * @param {Number} α - The anticlockwise angle in degrees.
      */
-    rot(α) {
+    rotx(α) {
         const m = new Matrix3([this.x, 0, this.y, 0, this.z, 0])
-        m.rot(α)
+        m.rotx(α)
+        console.log(m)
+        this.x = m.elements[0]
+        this.y = m.elements[2]
+        this.z = m.elements[4]
+    }
+
+    roty(α) {
+        const m = new Matrix3([this.x, 0, this.y, 0, this.z, 0])
+        m.roty(α)
+        console.log(m)
+        this.x = m.elements[0]
+        this.y = m.elements[2]
+        this.z = m.elements[4]
+    }
+    rotz(α) {
+        const m = new Matrix3([this.x, 0, this.y, 0, this.z, 0])
+        m.rotz(α)
         console.log(m)
         this.x = m.elements[0]
         this.y = m.elements[2]

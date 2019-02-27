@@ -1,4 +1,4 @@
-import Vector2 from '../../../Liberary/Math/Vector2.js'
+import Vector2 from '../../../Library/Math/Vector2.js'
 
 export default class TestVector2
 {
@@ -80,9 +80,6 @@ export default class TestVector2
     const actualy = v.y
     this.assertIdentical(actualx, actualy, expectedx, expectedy)
   }
-
- 
-
 
   assertIdentical(actualx,actualy, expectedx, expectedy)
   {
